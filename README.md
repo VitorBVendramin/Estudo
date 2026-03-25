@@ -1,3 +1,3 @@
 Estudo
 
-Repositório para armazenar códigos e exercícios de estudo.
+Repositório para estudos e exercícios e mostrar projetos que estou fazendo já está feito.
