@@ -12,5 +12,3 @@ programacao = input("voce gosta de programação? (sim/não): ")
 gosta_programacao = programacao.lower() in ["sim", "s"]
 
 print(f"Olá, meu nome é {nome}, tenho {idade} e é {'verdade' if gosta_programacao else 'falso'} que gosto de programação.")
-
-
