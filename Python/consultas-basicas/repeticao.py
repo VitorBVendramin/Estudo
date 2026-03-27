@@ -34,9 +34,22 @@
 
 # Senha até acertar
 
-senha_correta = "54321"
+# senha_correta = "54321"
+# senha = ""
+
+# while senha != senha_correta:
+#     senha = input("digite a senha: ")
+# print("Acesso Liberado!")
+
+
+senha_correta = "12345"
 senha = ""
 
-while senha != senha_correta:
+for senha in range(5):
     senha = input("digite a senha: ")
-print("Acesso Liberado!")
+    if senha == senha_correta:
+        print("Acesso liberado")
+        break
+
+else:
+    print("Limite excedido, tente novamente mais tarde!")
