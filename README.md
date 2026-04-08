@@ -20,7 +20,8 @@ Cada projeto tem seu próprio README com explicação, tecnologias e instruçõe
 
 | Projeto | Tecnologias | Descrição |
 |---------|-------------|-----------|
-| [Jogo de advinhação](./projetos/projeto_01/) | Python | Jogo de advinhação |
+| [Sistema de Gestão de Clientes e Vendas](https://github.com/VitorBVendramin) | Python, SQLite | CRUD de clientes com registro de vendas e relatórios |
+| [Jogo de advinhação](./projetos/projeto_01/) | Python | Jogo onde precisa acertar o número correto |
 
 ---
 
