@@ -21,7 +21,7 @@ Cada projeto tem seu próprio README com explicação, tecnologias e instruçõe
 | Projeto | Tecnologias | Descrição |
 |---------|-------------|-----------|
 | Sistema de Gestão de Clientes e Vendas | Python, SQLite | CRUD de clientes com registro de vendas e relatórios |
-| Jogo de advinhação | Python | Jogo onde precisa acertar o número correto |
+| Jogo de adivinhação | Python | Jogo onde o jogador precisa acertar o número correto |
 
 ---
 
