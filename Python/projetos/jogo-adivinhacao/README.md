@@ -1,6 +1,6 @@
 # 🎮 Jogo de Adivinhação
 
-Jogo desenvolvido em Python onde o jogador tenta adivinhar um número secreto entre 1 e 100, com dificuldades e dicas para ajudar (ou confundir!) durante o jogo.
+Jogo desenvolvido em Python onde o jogador tenta adivinhar um número secreto entre 1 e 100, com três níveis de dificuldade e diferentes tipos de dicas para ajudar (ou confundir!) durante o jogo.
 
 ---
 
@@ -12,14 +12,17 @@ O jogo gera um número aleatório entre 1 e 100 e o jogador precisa adivinhar qu
 
 ## ⚙️ Dificuldades
 
-### 😊 Fácil
-- **15 tentativas**
+### 😊 Fácil — 15 tentativas
 - Dicas diretas informando se o número secreto é maior ou menor que o chute
 
-### 💀 Difícil
-- **10 tentativas**
-- Dicas em forma de enigma para dificultar a dedução
-- Mensagem especial quando estiver muito próximo do número secreto
+### 😐 Normal — 10 tentativas
+- A cada tentativa as dicas são sorteadas aleatoriamente entre dica normal e enigma
+- Quanto mais próximo do número secreto, mais reveladora a dica
+
+### 💀 Difícil — 5 tentativas
+- Dicas apenas em forma de enigma
+- Faixas de distância mais amplas, dificultando a dedução
+- Quando muito longe do número secreto, o silêncio é sua única resposta
 
 ---
 
@@ -28,7 +31,33 @@ O jogo gera um número aleatório entre 1 e 100 e o jogador precisa adivinhar qu
 - Digite um número entre 1 e 100
 - A cada tentativa errada você recebe uma dica
 - Acerte antes de esgotar as tentativas para vencer
-- Se esgotar as tentativas sem acertar, o jogo termina
+- Se esgotar as tentativas sem acertar, o número secreto é revelado
+
+---
+
+## 💡 Sistema de dicas
+
+### Fácil
+| Situação | Dica |
+|----------|------|
+| Número maior | "O número secreto é maior!" |
+| Número menor | "O número secreto é menor!" |
+
+### Normal
+| Situação | Tipo |
+|----------|------|
+| Próximo | Enigma |
+| Maior | Sorteado entre normal e enigma |
+| Menor | Sorteado entre normal e enigma |
+
+### Difícil
+| Distância | Dica |
+|-----------|------|
+| <= 5 | Muito próximo |
+| <= 20 | Próximo |
+| <= 40 | Médio |
+| <= 60 | Longe |
+| > 60 | Silêncio |
 
 ---
 
