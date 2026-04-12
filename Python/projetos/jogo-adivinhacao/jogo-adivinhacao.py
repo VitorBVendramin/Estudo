@@ -114,7 +114,7 @@ while chute != numero_secreto and tentativas < tentivas_max:
                  print(dica)
             elif chute > numero_secreto:
                 dica = random.choice([
-                        "Você ultrapassou o segredo sem perceber."
+                        "Você ultrapassou o segredo sem perceber.",
                         "O tesouro ficou enterrado atrás de você."])
                 print(dica)
 
