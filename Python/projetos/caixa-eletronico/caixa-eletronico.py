@@ -37,7 +37,7 @@ def ver_extrato(extrato):
 
 
 def menu():
-    saldo = 1000
+    saldo = 0
     extrato = []
     while True:
         print("=== CAIXA ELETRÔNICO ===")
