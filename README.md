@@ -15,12 +15,11 @@ Exercícios práticos feitos durante o aprendizado.
 Focados em lógica de programação e fixação de conteúdo.
 
 ### 🚀 projetos/
-Projetos completos com documentação.  
+5 melhores projetos completos com documentação.  
 Cada projeto tem seu próprio README com explicação, tecnologias e instruções de uso.
 
 | Projeto | Tecnologias | Descrição |
 |---------|-------------|-----------|
-| Sistema de Gestão de Clientes e Vendas | Python, SQLite | CRUD de clientes com registro de vendas e relatórios |
 | [Jogo de Adivinhação](https://github.com/VitorBVendramin/Estudo/tree/main/Python/projetos/jogo-adivinhacao) | Python | Jogo onde precisa acertar o número correto |
 | [Sistema simulando caixa eletrônico](https://github.com/VitorBVendramin/Estudo/tree/main/Python/projetos/caixa-eletronico) | Python | Sistema como se fosse saque e depósito de um caixa eletrônico |
 
