@@ -1,0 +1,1 @@
+print("Olá, sou Vitor. Estudante de ADS, se voce esta vendo, seja bem vindo(a) ao meu github, estou estudando linguagem de programação e git/github, espero que goste e de feedback :)")
