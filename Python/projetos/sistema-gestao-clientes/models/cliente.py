@@ -12,7 +12,7 @@ def cadastrar_cliente():
     cursor = conexao.cursor()
     cursor.execute("""
         INSERT INTO clientes (nome, email, telefone, cpf, endereco)
-        VALUES (?, ?, ?, ?, ?)""
+        VALUES (?, ?, ?, ?, ?)
     """, (nome, email, telefone, cpf, endereco))
     
     conexao.commit()

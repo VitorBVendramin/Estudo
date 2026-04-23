@@ -22,7 +22,7 @@ def criar_tabelas():
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         cliente_id INTEGER,
         produto_id INTEGER,
-         quantidade INTEGER,
+        quantidade INTEGER,
         valor REAL,
         data TEXT,
         FOREIGN KEY (cliente_id) REFERENCES clientes(id)
