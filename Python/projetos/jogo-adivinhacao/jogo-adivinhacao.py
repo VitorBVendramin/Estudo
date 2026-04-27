@@ -6,8 +6,10 @@ tentativas = 0
 chute = 0
 dificuldade = 0
 
+
 dificuldade = int(input("Escolha a dificuldade: 1 = Fácil, 2 = Normal, 3 = Difícil: "))
 
+# Define o número máximo de tentativas com base na dificuldade escolhida
 if dificuldade == 1:
     tentivas_max = 10
     # dicas normais
@@ -21,11 +23,12 @@ elif dificuldade == 3:
     # dicas enigmaticas
     
 
-
+# Loop principal: roda até acertar ou acabar as tentativas
 while chute != numero_secreto and tentativas < tentivas_max:
     chute = int(input("Adivinhe o número de 1 a 100: "))
     tentativas += 1
 
+# ===== DICAS PARA DIFICULDADE FÁCIL =====
     if dificuldade == 1:
         if chute < numero_secreto:
             print("O número é maior!")
@@ -34,12 +37,9 @@ while chute != numero_secreto and tentativas < tentivas_max:
         else:
             print("Você acertou, Parabéns!!! :)")
 
-
-
-
-
+# ===== DICAS PARA DIFICULDADE NORMAL =====
     if dificuldade == 2:
-        if abs(chute - numero_secreto) == 0:
+        if abs(chute - numero_secreto) == 0:  # Calcula a distância entre o chute e o número secreto para dar dicas de proximidade
             print("Você acertou em cheio, Parabéns, que tal tentar no difícil?")
 
         elif abs(chute - numero_secreto) <= 5:
@@ -47,7 +47,7 @@ while chute != numero_secreto and tentativas < tentivas_max:
 
         elif abs(chute - numero_secreto) <= 15:
             if chute < numero_secreto:
-                 dica = random.choice([
+                 dica = random.choice([ # Escolhe uma dica aleatória para variar as respostas
                         "O número secreto é maior.",
                         "O número secreto habita as alturas, você ainda rasteja."])
                  print(dica)
@@ -84,9 +84,7 @@ while chute != numero_secreto and tentativas < tentivas_max:
                         "Você foi além do que os olhos podem ver, volte muito."])
                 print(dica)
 
-
-
-
+# ===== DICAS PARA DIFICULDADE DIFÍCIL =====
     if dificuldade == 3:
         if abs(chute - numero_secreto) == 0:
             print("Você acertou na maior dificuldade, Parabéns você é algum tipo de gênio?? :)")
@@ -136,14 +134,7 @@ while chute != numero_secreto and tentativas < tentivas_max:
                 "O silêncio é sua única resposta."])
             print(dica)
 
-
-
-
-
-
-
-
-if tentivas_max == tentativas and chute != numero_secreto:
+if tentivas_max == tentativas and chute != numero_secreto: # Verifica se o jogador perdeu (acabaram as tentativas)
     if dificuldade == 1:
         print("Foi muito perto mas acabou suas tentativas...No mais fácil? ta de brincadeira em...")
 
