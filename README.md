@@ -26,7 +26,7 @@ Cada projeto tem seu próprio README com explicação, tecnologias e instruçõe
 
 ---
 
-## 🛠️ Tecnologias
+## 🛠️ Tecnologias que estou aprendendo
 
 ![Python](https://img.shields.io/badge/Python-3776AB?style=flat&logo=python&logoColor=white)
 ![SQLite](https://img.shields.io/badge/SQLite-003B57?style=flat&logo=sqlite&logoColor=white)
