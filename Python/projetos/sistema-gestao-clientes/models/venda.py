@@ -10,7 +10,7 @@ def registrar_venda():
     conexao = conectar()
     cursor = conexao.cursor()
     cursor.execute("SELECT * FROM clientes WHERE id = ?", (cliente_id,))
-    cliente = cursor.fetchone()
+    cliente = cursor.fetchone() # verifica se o cliente existe antes de prosseguir
 
     if cliente is None:
         print("Cliente não encontrado!")
@@ -22,11 +22,11 @@ def registrar_venda():
         print("Produto não encontrado!")
         return
     
-    if produto[2] < quantidade:
+    if produto[2] < quantidade: # verifica se o produto existe e tem estoque suficiente
         print("Estoque insuficiente!")
         return
     
-    valor = produto[3] * quantidade
+    valor = produto[3] * quantidade # calcula o valor total: preço unitário × quantidade
 
     data = datetime.now().strftime("%d/%m/%Y %H:%M:%S")
     
@@ -35,6 +35,7 @@ def registrar_venda():
     VALUES (?, ?, ?, ?, ?)
 """, (cliente_id, produto_id, quantidade, valor, data))
     
+    # diminui o estoque do produto após registrar a venda
     cursor.execute("""
     UPDATE produtos SET quantidade = quantidade - ? WHERE id = ?
 """, (quantidade, produto_id))
@@ -90,6 +91,9 @@ def vendas_por_produto():
 def produtos_mais_vendido():
     conexao = conectar()
     cursor = conexao.cursor()
+
+    # ORDER BY DESC ordena do maior para menor, LIMIT 3 retorna os 3 mais vendidos
+    # SUM soma as quantidades vendidas, GROUP BY agrupa por produto
     cursor.execute("""
         SELECT produto_id, SUM(quantidade) 
         FROM vendas 

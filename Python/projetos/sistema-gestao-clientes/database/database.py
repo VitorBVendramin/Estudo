@@ -1,5 +1,6 @@
 import sqlite3
 
+# Cria conexão com o banco de dados SQLite
 def conectar():
     conexao = sqlite3.connect("database/banco.db")
     return conexao
@@ -17,6 +18,7 @@ def criar_tabelas():
         endereco TEXT
     )
 """)
+    # FOREIGN KEY vincula cada venda a um cliente e produto existente
     cursor.execute("""
     CREATE TABLE IF NOT EXISTS vendas (
         id INTEGER PRIMARY KEY AUTOINCREMENT,

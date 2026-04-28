@@ -23,7 +23,7 @@ def buscar_todos():
     conexao = conectar()
     cursor = conexao.cursor()
     cursor.execute("SELECT * FROM clientes")
-    clientes = cursor.fetchall()
+    clientes = cursor.fetchall() # fetchall retorna todos os resultados encontrados
 
     for cliente in clientes:
         print(cliente)
@@ -45,7 +45,7 @@ def buscar_por_id():
     conexao = conectar()
     cursor = conexao.cursor()
     cursor.execute("SELECT * FROM clientes WHERE id = ?", (id,))
-    cliente = cursor.fetchone()
+    cliente = cursor.fetchone() # fetchone retorna apenas um registro — ideal para busca por id único
     
     print(cliente)
 
@@ -80,7 +80,7 @@ def atualizar_cliente():
     
     conexao = conectar()
     cursor = conexao.cursor()
-    cursor.execute(f"UPDATE clientes SET {campo} = ? WHERE id = ?", (novo_valor, id))
+    cursor.execute(f"UPDATE clientes SET {campo} = ? WHERE id = ?", (novo_valor, id)) # monta o SQL dinamicamente com o campo escolhido pelo usuário
     conexao.commit()
 
     print("Cliente atualizado com sucesso!")

@@ -4,7 +4,7 @@ def cadastrar_produto():
 
     nome = input("Nome do produto: ")
     quantidade = int(input("Quantidade do produto: "))
-    preco = float(input("Preço do produto: ").replace(",", "."))
+    preco = float(input("Preço do produto: ").replace(",", ".")) # replace converte vírgula em ponto para aceitar ambos os formatos de decimal
 
     conexao = conectar()
     cursor = conexao.cursor()
@@ -32,7 +32,7 @@ def buscar_por_nome_produto():
     conexao = conectar()
     cursor = conexao.cursor()
     cursor.execute("SELECT * FROM produtos WHERE nome = ?", (nome,))
-    produtos = cursor.fetchall()
+    produtos = cursor.fetchall() 
     
     for produto in produtos:
         print(produto)
@@ -44,7 +44,7 @@ def buscar_por_id_produtos():
     conexao = conectar()
     cursor = conexao.cursor()
     cursor.execute("SELECT * FROM produtos WHERE id = ?", (id,))
-    produtos = cursor.fetchone()
+    produtos = cursor.fetchone() # fetchone retorna apenas um registro — ideal para busca por id único
     
     print(produtos)
 
@@ -72,7 +72,7 @@ def atualizar_produto():
 
     conexao = conectar()
     cursor = conexao.cursor()
-    cursor.execute(f"UPDATE produtos SET {campo} = ? WHERE id = ?", (novo_valor, id))
+    cursor.execute(f"UPDATE produtos SET {campo} = ? WHERE id = ?", (novo_valor, id)) # monta o SQL dinamicamente com o campo escolhido pelo usuário
     conexao.commit()
 
     print("Produto atualizado com sucesso!")

@@ -1,7 +1,14 @@
+# Funções de operações de clientes
 from models.cliente import cadastrar_cliente, buscar_todos, buscar_por_nome, buscar_por_id, atualizar_cliente, deletar_cliente
+
+# Funções de operações de produtos
 from models.produtos import cadastrar_produto, listar_produtos, buscar_por_nome_produto, buscar_por_id_produtos, atualizar_produto, deletar_produto
+
+# Funções de operações de vendas
 from models.venda import registrar_venda, listar_vendas, vendas_por_cliente, vendas_por_produto, produtos_mais_vendido
 
+
+# Menu principal do sistema de gestão de clientes, produtos e vendas
 def menu_clientes():
     while True:
         print("=== MENU CLIENTES ===")
@@ -133,4 +140,4 @@ def menu_principal():
         else:
             print("Opção não existe!")
 
-menu_principal()
+menu_principal() # Inicia o sistema
