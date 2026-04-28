@@ -110,12 +110,6 @@ python main.py
 
 ---
 
-## 📈 Status
-
-🟡 Em desenvolvimento
-
----
-
 ## 👨‍💻 Autor
 
 **Vitor Brunelli Vendramin**  
