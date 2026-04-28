@@ -87,7 +87,7 @@ def vendas_por_produto():
     for venda in vendas:
         print(venda)
 
-def produto_mais_vendido():
+def produtos_mais_vendido():
     conexao = conectar()
     cursor = conexao.cursor()
     cursor.execute("""

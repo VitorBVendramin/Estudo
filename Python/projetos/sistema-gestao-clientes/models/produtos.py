@@ -1,10 +1,10 @@
 from database.database import conectar
 
-def adicionar_produto():
+def cadastrar_produto():
 
     nome = input("Nome do produto: ")
-    quantidade = input("Quantidade do produto: ")
-    preco = input("Preço do produto: ")
+    quantidade = int(input("Quantidade do produto: "))
+    preco = float(input("Preço do produto: ")).replace(",", ".")
 
     conexao = conectar()
     cursor = conexao.cursor()
@@ -26,7 +26,7 @@ def listar_produtos():
     for produto in produtos:
         print(produto)
 
-def buscar_por_nome():
+def buscar_por_nome_produto():
 
     nome = input("Digite o nome do produto: ")
     conexao = conectar()
@@ -38,7 +38,7 @@ def buscar_por_nome():
         print(produto)
 
 
-def buscar_por_id():
+def buscar_por_id_produtos():
 
     id = int(input("Digite o id do produto: "))
     conexao = conectar()
@@ -77,7 +77,7 @@ def atualizar_produto():
 
     print("Produto atualizado com sucesso!")
 
-def remover_produto():
+def deletar_produto():
 
     id = int(input("Digite o id do produto que deseja deletar: "))
     conexao = conectar()
