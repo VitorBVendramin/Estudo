@@ -4,7 +4,7 @@ def cadastrar_produto():
 
     nome = input("Nome do produto: ")
     quantidade = int(input("Quantidade do produto: "))
-    preco = float(input("Preço do produto: ")).replace(",", ".")
+    preco = float(input("Preço do produto: ").replace(",", "."))
 
     conexao = conectar()
     cursor = conexao.cursor()
