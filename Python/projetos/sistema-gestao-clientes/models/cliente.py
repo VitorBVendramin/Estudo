@@ -1,4 +1,5 @@
 from database.database import conectar
+from validacoes import validar_cpf, validar_email, validar_telefone
 
 def cadastrar_cliente():
 
@@ -7,6 +8,18 @@ def cadastrar_cliente():
     telefone = input("Telefone: ")
     cpf = input("CPF: ")
     endereco = input("Endereço: ")
+
+    if not validar_cpf(cpf):
+        print("CPF inválido!")
+        return
+
+    if not validar_email(email):
+        print("Email inválido!")
+        return
+
+    if not validar_telefone(telefone):
+        print("Telefone inválido!")
+        return
     
     conexao = conectar()
     cursor = conexao.cursor()
