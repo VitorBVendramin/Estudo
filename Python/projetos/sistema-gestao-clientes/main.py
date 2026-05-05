@@ -7,6 +7,11 @@ from models.produtos import cadastrar_produto, listar_produtos, buscar_por_nome_
 # Funções de operações de vendas
 from models.venda import registrar_venda, listar_vendas, vendas_por_cliente, vendas_por_produto, produtos_mais_vendido
 
+# Funções de validação
+from validacoes import validar_cpf, validar_email, validar_telefone
+
+# Funções de relatórios
+from models.relatorios import faturamento_total, vendas_por_periodo, historico_por_cliente, produtos_estoque_baixo
 
 # Menu principal do sistema de gestão de clientes, produtos e vendas
 def menu_clientes():
@@ -115,13 +120,43 @@ def menu_vendas():
         else:
             print("Opção inválida. Utilize número de 1 a 7 somente!")
 
+def menu_relatorio():
+    while True:
+        print("=== MENU RELATÓRIOS ===")
+        print("1 - Vendas dentro de um determinado período")
+        print("2 - Vendas por cliente")
+        print("3 - Produtos com estoque baixo")
+        print("4 - Faturamento total")
+        print("5 - Voltar")
+    
+        opcao = int(input("Escolha uma opção: "))
+
+        if opcao == 1:
+            vendas_por_periodo()
+
+        elif opcao == 2:
+            historico_por_cliente()
+        
+        elif opcao == 3:
+            produtos_estoque_baixo()
+        
+        elif opcao == 4:
+            faturamento_total()
+        
+        elif opcao == 5:
+            break
+
+        else:
+            print("Opção inválida. Utilize número de 1 a 5 somente!")
+
 def menu_principal():
     while True:
         print("=== SISTEMA DE GESTÃO ===")
         print("1 - Clientes")
         print("2 - Produtos")
         print("3 - Vendas")
-        print("4 - Sair")
+        print("4 - Relatórios")
+        print("5 - Sair")
 
         opcao = int(input("Escolha uma opção: "))
 
@@ -135,6 +170,9 @@ def menu_principal():
             menu_vendas()
 
         elif opcao == 4:
+            menu_relatorio()
+
+        elif opcao == 5:
             break
 
         else:

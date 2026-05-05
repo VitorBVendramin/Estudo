@@ -4,23 +4,30 @@ from validacoes import validar_cpf, validar_email, validar_telefone
 def cadastrar_cliente():
 
     nome = input("Nome: ")
-    email = input("Email: ")
-    telefone = input("Telefone: ")
-    cpf = input("CPF: ")
+
+    while True:
+        email = input("Email: ")
+        if validar_email(email):
+            break
+        else:
+            print("Email inválido! Digite novamente.")
+
+    while True:
+        telefone = input("Telefone: ")
+        if validar_telefone(telefone):
+            break
+        else:
+            print("telefone inválido! Digite novamente.")
+
+    while True:
+        cpf = input("CPF: ")
+        if validar_cpf(cpf):
+            break
+        else:
+            print("CPF inválido! Digite novamente.")
+
     endereco = input("Endereço: ")
 
-    if not validar_cpf(cpf):
-        print("CPF inválido!")
-        return
-
-    if not validar_email(email):
-        print("Email inválido!")
-        return
-
-    if not validar_telefone(telefone):
-        print("Telefone inválido!")
-        return
-    
     conexao = conectar()
     cursor = conexao.cursor()
     cursor.execute("""
