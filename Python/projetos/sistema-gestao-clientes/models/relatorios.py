@@ -20,8 +20,6 @@ def vendas_por_periodo():
 
 def historico_por_cliente():
 
-    
-
 def produtos_estoque_baixo():
 
 def faturamento_total():
