@@ -67,28 +67,6 @@ def listar_vendas():
     cursor.close()
     conexao.close()
 
-def vendas_por_cliente():
-    cliente_id = int(input("ID do cliente: "))
-
-    conexao = conectar()
-    cursor = conexao.cursor()
-    cursor.execute("SELECT * FROM clientes WHERE id = ?", (cliente_id,))
-    cliente = cursor.fetchone()
-
-    if cliente is None:
-        print("Cliente não encontrado!")
-    else:
-        cursor.execute("SELECT * FROM vendas WHERE cliente_id = ?", (cliente_id,))
-        vendas = cursor.fetchall()
-    
-        if not vendas:
-            print("Este cliente não fez nenhuma compra.")
-        else:
-            for venda in vendas:
-                print(venda)
-    cursor.close()
-    conexao.close()
-
 def vendas_por_produto():
     produto_id = int(input("ID do produto: "))
 

@@ -15,8 +15,8 @@ def vendas_por_periodo():
     cursor = conexao.cursor()
     cursor.execute(sql, (data_inicial, data_final))
     resultado = cursor.fetchone()
-    print(f"Vendas no período: {resultado[0]}")
-    print(f"Valor total: R${resultado[1]:.2f}")
+    total = resultado[1] if resultado[1] is not None else 0
+    print(f"Valor total: R${total:.2f}")
 
     cursor.close()
     conexao.close()

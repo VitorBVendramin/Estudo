@@ -27,7 +27,14 @@ def listar_produtos():
     produtos = cursor.fetchall()
 
     for produto in produtos:
-        print(produto)
+        for produto in produtos:
+            print(f"""
+ID: {produto[0]}
+Nome: {produto[1]}
+Quantidade: {produto[2]}
+Preço: {produto[3]}
+------------------------
+""")
 
     cursor.close()
     conexao.close()

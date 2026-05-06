@@ -5,10 +5,7 @@ from models.cliente import cadastrar_cliente, buscar_todos, buscar_por_nome, bus
 from models.produtos import cadastrar_produto, listar_produtos, buscar_por_nome_produto, buscar_por_id_produtos, atualizar_produto, deletar_produto
 
 # Funções de operações de vendas
-from models.venda import registrar_venda, listar_vendas, vendas_por_cliente, vendas_por_produto, produtos_mais_vendido
-
-# Funções de validação
-from validacoes import validar_cpf, validar_email, validar_telefone
+from models.venda import registrar_venda, listar_vendas, vendas_por_produto, produtos_mais_vendido
 
 # Funções de relatórios
 from models.relatorios import faturamento_total, vendas_por_periodo, historico_por_cliente, produtos_estoque_baixo
@@ -92,10 +89,9 @@ def menu_vendas():
         print("=== MENU VENDAS ===")
         print("1 - Registrar vendas")
         print("2 - Listar vendas")
-        print("3 - Vendas por cliente")
-        print("4 - Vendas por produto")
-        print("5 - Produtos mais vendidos")
-        print("6 - Voltar")
+        print("3 - Vendas por produto")
+        print("4 - Produtos mais vendidos")
+        print("5 - Voltar")
 
         opcao = int(input("Escolha uma opção: "))
 
@@ -106,15 +102,12 @@ def menu_vendas():
             listar_vendas()
         
         elif opcao == 3:
-            vendas_por_cliente()
-        
-        elif opcao == 4:
             vendas_por_produto()
         
-        elif opcao == 5:
+        elif opcao == 4:
             produtos_mais_vendido()
 
-        elif opcao == 6:
+        elif opcao == 5:
             break
 
         else:
