@@ -14,16 +14,25 @@ def registrar_venda():
 
     if cliente is None:
         print("Cliente não encontrado!")
+
+        cursor.close()
+        conexao.close()
         return
 
     cursor.execute("SELECT * FROM produtos WHERE id = ?", (produto_id,))
     produto = cursor.fetchone()
     if produto is None:
         print("Produto não encontrado!")
+
+        cursor.close()
+        conexao.close()
         return
     
     if produto[2] < quantidade: # verifica se o produto existe e tem estoque suficiente
         print("Estoque insuficiente!")
+
+        cursor.close()
+        conexao.close()
         return
     
     valor = produto[3] * quantidade # calcula o valor total: preço unitário × quantidade
@@ -43,6 +52,9 @@ def registrar_venda():
     conexao.commit()
     print("Venda registrada com sucesso!")
 
+    cursor.close()
+    conexao.close()
+
 def listar_vendas():
     conexao = conectar()
     cursor = conexao.cursor()
@@ -51,6 +63,9 @@ def listar_vendas():
 
     for venda in vendas:
         print(venda)
+
+    cursor.close()
+    conexao.close()
 
 def vendas_por_cliente():
     cliente_id = int(input("ID do cliente: "))
@@ -62,13 +77,17 @@ def vendas_por_cliente():
 
     if cliente is None:
         print("Cliente não encontrado!")
-        return
+    else:
+        cursor.execute("SELECT * FROM vendas WHERE cliente_id = ?", (cliente_id,))
+        vendas = cursor.fetchall()
     
-    cursor.execute("SELECT * FROM vendas WHERE cliente_id = ?", (cliente_id,))
-    vendas = cursor.fetchall()
-    
-    for venda in vendas:
-        print(venda)
+        if not vendas:
+            print("Este cliente não fez nenhuma compra.")
+        else:
+            for venda in vendas:
+                print(venda)
+    cursor.close()
+    conexao.close()
 
 def vendas_por_produto():
     produto_id = int(input("ID do produto: "))
@@ -80,13 +99,18 @@ def vendas_por_produto():
 
     if produto is None:
         print("Produto não encontrado!")
-        return
+    else:
+        cursor.execute("SELECT * FROM vendas WHERE produto_id = ?", (produto_id,))
+        vendas = cursor.fetchall()
     
-    cursor.execute("SELECT * FROM vendas WHERE produto_id = ?", (produto_id,))
-    vendas = cursor.fetchall()
-    
-    for venda in vendas:
-        print(venda)
+        if not vendas:
+            print("Nenhuma venda encontrada para este produto.")
+        else:
+            for venda in vendas:
+                print(venda)
+
+    cursor.close()
+    conexao.close()
 
 def produtos_mais_vendido():
     conexao = conectar()
@@ -106,3 +130,6 @@ def produtos_mais_vendido():
     
     for produto in produtos:
         print(produto)
+
+    cursor.close()
+    conexao.close()

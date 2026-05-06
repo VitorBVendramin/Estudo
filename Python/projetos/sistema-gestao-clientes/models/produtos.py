@@ -16,6 +16,9 @@ def cadastrar_produto():
     conexao.commit()
     print("Produto cadastrado com sucesso!")
 
+    cursor.close()
+    conexao.close()
+
 def listar_produtos():
 
     conexao = conectar()
@@ -25,6 +28,9 @@ def listar_produtos():
 
     for produto in produtos:
         print(produto)
+
+    cursor.close()
+    conexao.close()
 
 def buscar_por_nome_produto():
 
@@ -37,6 +43,8 @@ def buscar_por_nome_produto():
     for produto in produtos:
         print(produto)
 
+    cursor.close()
+    conexao.close()
 
 def buscar_por_id_produtos():
 
@@ -48,6 +56,8 @@ def buscar_por_id_produtos():
     
     print(produtos)
 
+    cursor.close()
+    conexao.close()
 
 def atualizar_produto():
 
@@ -77,6 +87,9 @@ def atualizar_produto():
 
     print("Produto atualizado com sucesso!")
 
+    cursor.close()
+    conexao.close()
+
 def deletar_produto():
 
     id = int(input("Digite o id do produto que deseja deletar: "))
@@ -86,3 +99,6 @@ def deletar_produto():
     conexao.commit()
     
     print("Produto deletado com sucesso!")
+
+    cursor.close()
+    conexao.close()

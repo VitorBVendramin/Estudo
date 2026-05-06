@@ -38,6 +38,9 @@ def cadastrar_cliente():
     conexao.commit()
     print("Cliente cadastrado com sucesso!")
 
+    cursor.close()
+    conexao.close()
+
 def buscar_todos():
 
     conexao = conectar()
@@ -45,8 +48,14 @@ def buscar_todos():
     cursor.execute("SELECT * FROM clientes")
     clientes = cursor.fetchall() # fetchall retorna todos os resultados encontrados
 
-    for cliente in clientes:
-        print(cliente)
+    if not clientes:
+        print("Não existe cliente cadastrado.")
+    else:
+        for cliente in clientes:
+            print(cliente)
+
+    cursor.close()
+    conexao.close()
 
 def buscar_por_nome():
 
@@ -55,9 +64,15 @@ def buscar_por_nome():
     cursor = conexao.cursor()
     cursor.execute("SELECT * FROM clientes WHERE nome = ?", (nome,))
     clientes = cursor.fetchall()
-    
-    for cliente in clientes:
-        print(cliente)
+
+    if not clientes:
+        print("Cliente não encontrado.")
+    else:
+        for cliente in clientes:
+            print(cliente)
+
+    cursor.close()
+    conexao.close()
 
 def buscar_por_id():
 
@@ -66,8 +81,14 @@ def buscar_por_id():
     cursor = conexao.cursor()
     cursor.execute("SELECT * FROM clientes WHERE id = ?", (id,))
     cliente = cursor.fetchone() # fetchone retorna apenas um registro — ideal para busca por id único
-    
-    print(cliente)
+
+    if not cliente:
+        print("ID não encontrado.")
+    else:
+        print(cliente)
+
+    cursor.close()
+    conexao.close()
 
 def atualizar_cliente():
 
@@ -105,6 +126,9 @@ def atualizar_cliente():
 
     print("Cliente atualizado com sucesso!")
 
+    cursor.close()
+    conexao.close()
+
 def deletar_cliente():
 
     id = int(input("Digite o id do cliente que deseja deletar: "))
@@ -114,3 +138,6 @@ def deletar_cliente():
     conexao.commit()
     
     print("Cliente deletado com sucesso!")
+
+    cursor.close()
+    conexao.close()
