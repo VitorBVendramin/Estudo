@@ -1,4 +1,5 @@
 from database.database import conectar
+from datetime import datetime
 
 def vendas_por_periodo():
 
@@ -42,7 +43,32 @@ def historico_por_cliente(): # Histórico do que cada cliente comprou, e tem abr
     conexao.close()
 
 def produtos_estoque_baixo():
-    pass
+
+    
+    conexao = conectar()
+    cursor = conexao.cursor()
+
+    cursor.execute("""
+        SELECT * FROM produtos
+        WHERE quantidade <= 5
+    """)
+
+    produtos = cursor.fetchall()
+
+    if not produtos:
+        print("Nenhum produto com estoque baixo.")
+
+    else:
+        print("=== PRODUTOS COM ESTOQUE BAIXO ===")
+
+        for produto in produtos:
+            print(f"""
+Produto: {produto[1]}
+Estoque restante: {produto[2]}
+""")
+
+    cursor.close()
+    conexao.close()
 
 def faturamento_total():
 
