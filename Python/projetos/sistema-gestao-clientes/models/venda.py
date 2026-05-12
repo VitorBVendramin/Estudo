@@ -37,7 +37,7 @@ def registrar_venda():
     
     valor = produto[3] * quantidade # calcula o valor total: preço unitário × quantidade
 
-    data = datetime.now().strftime("%d/%m/%Y %H:%M:%S")
+    data = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     
     cursor.execute("""
     INSERT INTO vendas (cliente_id, produto_id, quantidade, valor, data)

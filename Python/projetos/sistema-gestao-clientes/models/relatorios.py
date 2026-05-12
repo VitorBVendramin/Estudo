@@ -3,8 +3,8 @@ from datetime import datetime
 
 def vendas_por_periodo():
 
-    data_inicial = input("Digite a data inicial: ")
-    data_final = input("Digite a data final: ")
+    data_inicial = datetime.strptime(input("Data inicial (dd/mm/yyyy): "), "%d/%m/%Y").strftime("%Y-%m-%d") + " 00:00:00" # Converte a inserção de data igual americano para brasileiro
+    data_final = datetime.strptime(input("Data final (dd/mm/yyyy): "), "%d/%m/%Y").strftime("%Y-%m-%d") + " 23:59:59"
 
     sql = """
     SELECT COUNT(*), SUM(valor)
@@ -21,7 +21,7 @@ def vendas_por_periodo():
 
     cursor.close()
     conexao.close()
-    
+
 def historico_por_cliente(): # Histórico do que cada cliente comprou, e tem abreviação no banco, V = Vendas/ P = Produtos
 
     cliente_id = int(input("ID do cliente: "))
