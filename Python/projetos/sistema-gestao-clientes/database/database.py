@@ -27,7 +27,7 @@ def criar_tabelas():
         quantidade INTEGER,
         valor REAL,
         data TEXT,
-        FOREIGN KEY (cliente_id) REFERENCES clientes(id)
+        FOREIGN KEY (cliente_id) REFERENCES clientes(id),
         FOREIGN KEY (produto_id) REFERENCES produtos(id)
     )
 """)

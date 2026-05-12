@@ -10,6 +10,8 @@ from models.venda import registrar_venda, listar_vendas, vendas_por_produto, pro
 # Funções de relatórios
 from models.relatorios import faturamento_total, vendas_por_periodo, historico_por_cliente, produtos_estoque_baixo
 
+from datetime import datetime
+
 # Menu principal do sistema de gestão de clientes, produtos e vendas
 def menu_clientes():
     while True:

@@ -1,4 +1,5 @@
 from database.database import conectar
+from datetime import datetime
 from validacoes import validar_cpf, validar_email, validar_telefone
 
 def cadastrar_cliente():
@@ -51,8 +52,19 @@ def buscar_todos():
     if not clientes:
         print("Não existe cliente cadastrado.")
     else:
+        print("\n=== CLIENTES CADASTRADOS ===")
+
         for cliente in clientes:
-            print(cliente)
+            print(f"""
+ID: {cliente[0]}
+Nome: {cliente[1]}
+Email: {cliente[2]}
+Telefone: {cliente[3]}
+CPF: {cliente[4]}
+Endereço: {cliente[5]}
+------------------------
+""")
+
 
     cursor.close()
     conexao.close()
@@ -66,26 +78,45 @@ def buscar_por_nome():
     clientes = cursor.fetchall()
 
     if not clientes:
-        print("Cliente não encontrado.")
+        print("Nenhum cliente encontrado com esse nome.")
     else:
+        print("\n=== CLIENTES ENCONTRADOS ===")
+
         for cliente in clientes:
-            print(cliente)
+            print(f"""
+ID: {cliente[0]}
+Nome: {cliente[1]}
+Email: {cliente[2]}
+Telefone: {cliente[3]}
+CPF: {cliente[4]}
+Endereço: {cliente[5]}
+------------------------
+""")
 
     cursor.close()
     conexao.close()
 
 def buscar_por_id():
 
-    id = int(input("Digite o id do cliente: "))
+    cliente_id = int(input("Digite o id do cliente: "))
     conexao = conectar()
     cursor = conexao.cursor()
-    cursor.execute("SELECT * FROM clientes WHERE id = ?", (id,))
+    cursor.execute("SELECT * FROM clientes WHERE id = ?", (cliente_id,))
     cliente = cursor.fetchone() # fetchone retorna apenas um registro — ideal para busca por id único
 
     if not cliente:
         print("ID não encontrado.")
     else:
-        print(cliente)
+        print("\n=== CLIENTE CADASTRADO ===")
+        print(f"""
+ID: {cliente[0]}
+Nome: {cliente[1]}
+Email: {cliente[2]}
+Telefone: {cliente[3]}
+CPF: {cliente[4]}
+Endereço: {cliente[5]}
+------------------------
+""")
 
     cursor.close()
     conexao.close()

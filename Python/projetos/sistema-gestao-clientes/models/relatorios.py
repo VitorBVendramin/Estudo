@@ -34,10 +34,22 @@ def historico_por_cliente(): # Histórico do que cada cliente comprou, e tem abr
         join produtos p ON v.produto_id = p.id
         WHERE v.cliente_id = ?
     """, (cliente_id,))
-    cliente = cursor.fetchall()
+    vendas = cursor.fetchall()
 
-    for venda in cliente:
-        print(venda)
+    if not vendas:
+        print("Este cliente não possui compras.")
+    else:
+        print("\n=== HISTÓRICO DE COMPRAS DO CLIENTE ===")
+
+        for venda in vendas:
+            print(f"""
+ID da venda: {venda[0]}
+Produto: {venda[1]}
+Quantidade: {venda[2]}
+Valor total: R${venda[3]:.2f}
+Data: {venda[4]}
+------------------------
+""")
 
     cursor.close()
     conexao.close()
@@ -59,12 +71,14 @@ def produtos_estoque_baixo():
         print("Nenhum produto com estoque baixo.")
 
     else:
-        print("=== PRODUTOS COM ESTOQUE BAIXO ===")
+        print("\n=== PRODUTOS COM ESTOQUE BAIXO ===")
 
         for produto in produtos:
             print(f"""
+ID do produto: {produto[0]}
 Produto: {produto[1]}
 Estoque restante: {produto[2]}
+---------------------------
 """)
 
     cursor.close()

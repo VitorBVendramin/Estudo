@@ -1,4 +1,5 @@
 from database.database import conectar
+from datetime import datetime
 
 def cadastrar_produto():
 
@@ -26,7 +27,35 @@ def listar_produtos():
     cursor.execute("SELECT * FROM produtos")
     produtos = cursor.fetchall()
 
-    for produto in produtos:
+    if not produtos:
+        print("Não existe produto cadastrado!")
+    else:
+        print("\n=== LISTA DE PRODUTOS ===")
+
+        for produto in produtos:
+            print(f"""
+ID: {produto[0]}
+Nome: {produto[1]}
+Quantidade: {produto[2]}
+Preço: {produto[3]}
+------------------------
+""")
+    cursor.close()
+    conexao.close()
+
+def buscar_por_nome_produto():
+
+    nome = input("Digite o nome do produto: ")
+    conexao = conectar()
+    cursor = conexao.cursor()
+    cursor.execute("SELECT * FROM produtos WHERE nome = ?", (nome,))
+    produtos = cursor.fetchall()
+
+    if not produtos:
+        print("Não existe produto nenhum cadastrado para buscar por nome!")
+    else:
+        print("\n=== PRODUTOS COM ESTE NOME ===")
+        
         for produto in produtos:
             print(f"""
 ID: {produto[0]}
@@ -39,20 +68,6 @@ Preço: {produto[3]}
     cursor.close()
     conexao.close()
 
-def buscar_por_nome_produto():
-
-    nome = input("Digite o nome do produto: ")
-    conexao = conectar()
-    cursor = conexao.cursor()
-    cursor.execute("SELECT * FROM produtos WHERE nome = ?", (nome,))
-    produtos = cursor.fetchall() 
-    
-    for produto in produtos:
-        print(produto)
-
-    cursor.close()
-    conexao.close()
-
 def buscar_por_id_produtos():
 
     id = int(input("Digite o id do produto: "))
@@ -61,7 +76,19 @@ def buscar_por_id_produtos():
     cursor.execute("SELECT * FROM produtos WHERE id = ?", (id,))
     produtos = cursor.fetchone() # fetchone retorna apenas um registro — ideal para busca por id único
     
-    print(produtos)
+    if not produtos:
+        print("Não existe nenhum produto cadastrado para buscar por id!")
+    else:
+        print("\n=== PRODUTO COM ESSE ID ===")
+
+        for produto in produtos:
+            print(f"""
+ID: {produto[0]}
+Nome: {produto[1]}
+Quantidade: {produto[2]}
+Preço: {produto[3]}
+------------------------
+""")
 
     cursor.close()
     conexao.close()
@@ -69,7 +96,7 @@ def buscar_por_id_produtos():
 def atualizar_produto():
 
     id = int(input("Digite o id do produto: "))
-
+    
     print("O que deseja atualizar?")
     print("1 - Nome")
     print("2 - Quantidade")

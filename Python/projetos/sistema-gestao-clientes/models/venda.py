@@ -50,7 +50,7 @@ def registrar_venda():
 """, (quantidade, produto_id))
     
     conexao.commit()
-    print("Venda registrada com sucesso!")
+    print("Venda registrada com sucesso!")  
 
     cursor.close()
     conexao.close()
@@ -61,8 +61,20 @@ def listar_vendas():
     cursor.execute("SELECT * FROM vendas")
     vendas = cursor.fetchall()
 
-    for venda in vendas:
-        print(venda)
+    if not vendas:
+        print("Nenhuma venda encontrada!")
+    else:
+        print("\n=== LISTA DE VENDAS ===")
+        for venda in vendas:
+            print(f"""
+ID da venda: {venda[0]}
+ID do cliente: {venda[1]}
+ID do produto: {venda[2]}
+Quantidade: {venda[3]}
+Valor: R${venda[4]:.2f}
+Data: {venda[5]}
+------------------------
+""")
 
     cursor.close()
     conexao.close()
@@ -84,8 +96,17 @@ def vendas_por_produto():
         if not vendas:
             print("Nenhuma venda encontrada para este produto.")
         else:
+            print(f"\n=== VENDAS DO PRODUTO: {produto[1]} ===")
+
             for venda in vendas:
-                print(venda)
+                print(f"""
+ID da venda: {venda[0]}
+Cliente ID: {venda[1]}
+Quantidade vendida: {venda[3]}
+Valor total: R${venda[4]:.2f}
+Data: {venda[5]}
+------------------------
+""")
 
     cursor.close()
     conexao.close()
@@ -97,17 +118,27 @@ def produtos_mais_vendido():
     # ORDER BY DESC ordena do maior para menor, LIMIT 3 retorna os 3 mais vendidos
     # SUM soma as quantidades vendidas, GROUP BY agrupa por produto
     cursor.execute("""
-        SELECT produto_id, SUM(quantidade) 
-        FROM vendas 
-        GROUP BY produto_id 
-        ORDER BY SUM(quantidade) DESC 
+        SELECT p.nome, SUM(v.quantidade)
+        FROM vendas v
+        JOIN produtos p ON v.produto_id = p.id
+        GROUP BY p.nome
+        ORDER BY SUM(v.quantidade) DESC 
         LIMIT 3
     """)
 
     produtos = cursor.fetchall()
+
+    if not produtos:
+        print("Nenhuma venda registrada.")
+    else:
+        print("\n=== OS 3 PRODUTOS MAIS VENDIDOS ===")
     
     for produto in produtos:
-        print(produto)
+        print(f"""
+Produto: {produto[0]}
+Quantidade vendida: {produto[1]}
+------------------------
+""")
 
     cursor.close()
     conexao.close()
