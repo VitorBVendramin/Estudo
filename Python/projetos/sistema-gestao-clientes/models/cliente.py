@@ -5,9 +5,16 @@ from validacoes import validar_cpf, validar_email, validar_telefone
 def cadastrar_cliente():
 
     nome = input("Nome: ")
-
+    
+    conexao = conectar()
+    cursor = conexao.cursor()
+    
     while True:
         email = input("Email: ")
+        cursor.execute("SELECT id FROM clientes WHERE email = ?", (email,))
+        if cursor.fetchone():
+            print("Email já cadastrado! Digite outro.")
+            continue
         if validar_email(email):
             break
         else:
@@ -22,6 +29,10 @@ def cadastrar_cliente():
 
     while True:
         cpf = input("CPF: ")
+        cursor.execute("SELECT id FROM clientes WHERE cpf = ?", (cpf,))
+        if cursor.fetchone():
+            print("CPF já cadastrado!")
+            continue
         if validar_cpf(cpf):
             break
         else:
@@ -29,8 +40,6 @@ def cadastrar_cliente():
 
     endereco = input("Endereço: ")
 
-    conexao = conectar()
-    cursor = conexao.cursor()
     cursor.execute("""
         INSERT INTO clientes (nome, email, telefone, cpf, endereco)
         VALUES (?, ?, ?, ?, ?)

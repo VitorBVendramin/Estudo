@@ -52,6 +52,7 @@ def menu_clientes():
 
 def menu_produtos():
     while True:
+        print("=== MENU PRODUTOS ===")
         print("1 - Adicionar produto")
         print("2 - Listar todos")
         print("3 - Buscar por nome")

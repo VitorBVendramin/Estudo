@@ -1,7 +1,27 @@
 def validar_cpf(cpf):
+    if "." not in cpf or "-" not in cpf:  # verifica se tem o formato correto com . e -
+        return False
+    
     cpf = cpf.replace(".", "").replace("-", "")
     if len(cpf) != 11:
         return False
+    
+    if not cpf.isdigit():  # verifica se todos os caracteres são números
+        return False
+    
+    if len(set(cpf)) == 1:
+        return False
+    
+    soma = sum(int(cpf[i]) * (10 - i) for i in range(9)) # valida primeiro dígito verificador
+    digito1 = (soma * 10 % 11) % 10
+    if digito1 != int(cpf[9]):
+        return False
+    
+    soma = sum(int(cpf[i]) * (11 - i) for i in range(10)) # valida segundo dígito verificador
+    digito2 = (soma * 10 % 11) % 10
+    if digito2 != int(cpf[10]):
+        return False
+    
     return True
 
 def validar_email(email):
