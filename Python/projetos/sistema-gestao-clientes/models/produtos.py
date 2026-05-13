@@ -80,13 +80,11 @@ def buscar_por_id_produtos():
         print("Não existe nenhum produto cadastrado para buscar por id!")
     else:
         print("\n=== PRODUTO COM ESSE ID ===")
-
-        for produto in produtos:
-            print(f"""
-ID: {produto[0]}
-Nome: {produto[1]}
-Quantidade: {produto[2]}
-Preço: {produto[3]}
+        print(f"""
+ID: {produtos[0]}
+Nome: {produtos[1]}
+Quantidade: {produtos[2]}
+Preço: {produtos[3]}
 ------------------------
 """)
 
