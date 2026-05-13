@@ -7,7 +7,7 @@ Sistema desenvolvido em Python com banco de dados SQLite para gerenciamento comp
 ## 🚀 Funcionalidades
 
 ### 👤 Clientes
-- ✅ Cadastrar cliente
+- ✅ Cadastrar cliente com validação de CPF, email e telefone
 - ✅ Buscar todos os clientes
 - ✅ Buscar por nome ou ID
 - ✅ Atualizar dados do cliente
@@ -15,17 +15,27 @@ Sistema desenvolvido em Python com banco de dados SQLite para gerenciamento comp
 
 ### 📦 Produtos
 - ✅ Adicionar produto
-- ✅ Remover produto
-- ✅ Atualizar estoque
-- ✅ Listar produtos
+- ✅ Listar todos os produtos
 - ✅ Buscar por nome ou ID
+- ✅ Atualizar produto
+- ✅ Remover produto
 
 ### 💰 Vendas
 - ✅ Registrar venda com validação de estoque
-- ✅ Buscar vendas por cliente
-- ✅ Buscar vendas por produto
-- ✅ Relatório de vendas por período
-- ✅ Produto mais vendido
+- ✅ Listar vendas
+- ✅ Vendas por produto
+- ✅ Produtos mais vendidos
+
+### 📊 Relatórios
+- ✅ Vendas por período
+- ✅ Histórico de compras por cliente
+- ✅ Produtos com estoque baixo
+- ✅ Faturamento total
+
+### 🔐 Autenticação (em breve)
+- ⏳ Login com usuário e senha
+- ⏳ Senha criptografada
+- ⏳ Níveis de acesso
 
 ---
 
@@ -71,8 +81,10 @@ sistema-gestao-clientes/
 │
 ├── models/
 │   ├── cliente.py         ← operações CRUD de clientes
-│   ├── produto.py         ← operações CRUD de produtos
-│   └── venda.py           ← operações de vendas e relatórios
+│   ├── produtos.py        ← operações CRUD de produtos
+│   ├── venda.py           ← operações de vendas
+│   ├── relatorios.py      ← relatórios do sistema
+│   └── validacoes.py      ← validação de dados
 │
 ├── main.py                ← menu principal
 └── README.md
@@ -84,7 +96,7 @@ sistema-gestao-clientes/
 
 **1. Clone o repositório**
 ```bash
-git clone https://github.com/VitorBVendramin/sistema-gestao-clientes.git
+git clone https://github.com/VitorBVendramin/Estudo/tree/main/Python/projetos/sistema-gestao-clientes
 cd sistema-gestao-clientes
 ```
 
@@ -98,15 +110,22 @@ python database/database.py
 python main.py
 ```
 
-> Nenhuma biblioteca externa necessária.
+> Nenhuma biblioteca externa necessária. O projeto usa apenas módulos nativos do Python.
 
 ---
 
 ## 🛠️ Tecnologias
 
-![Python](https://img.shields.io/badge/Python-3776AB?style=flat&logo=python&logoColor=white)
-![SQLite](https://img.shields.io/badge/SQLite-003B57?style=flat&logo=sqlite&logoColor=white)
-![Git](https://img.shields.io/badge/Git-F05032?style=flat&logo=git&logoColor=white)
+![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![SQLite](https://img.shields.io/badge/SQLite-003B57?style=for-the-badge&logo=sqlite&logoColor=white)
+![Git](https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white)
+![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)
+
+---
+
+## 📈 Status
+
+🟡 Em desenvolvimento — autenticação sendo implementada
 
 ---
 
