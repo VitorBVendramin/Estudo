@@ -12,9 +12,9 @@ def criar_tabelas():
     CREATE TABLE IF NOT EXISTS clientes (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         nome TEXT NOT NULL,
-        email TEXT,
+        email TEXT UNIQUE,
         telefone TEXT,
-        cpf TEXT,
+        cpf TEXT UNIQUE,
         endereco TEXT
     )
 """)
@@ -39,7 +39,15 @@ def criar_tabelas():
         preco REAL NOT NULL
     )
 """)
-
+    cursor.execute("""
+    CREATE TABLE IF NOT EXISTS usuarios (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        nome TEXT NOT NULL,
+        login TEXT NOT NULL UNIQUE,
+        senha TEXT NOT NULL,
+        cargo TEXT NOT NULL
+    )
+""")
 
     conexao.commit()
 
