@@ -160,7 +160,7 @@ python main.py
 
 ## 📈 Status
 
-🟡 Em desenvolvimento — testes sendo feitos
+🟢 Concluído
 
 ---
 

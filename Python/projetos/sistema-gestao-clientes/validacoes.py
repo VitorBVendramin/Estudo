@@ -1,14 +1,15 @@
 def validar_cpf(cpf):
-    if "." not in cpf or "-" not in cpf:  # verifica se tem o formato correto com . e -
+    # verifica formato exato 000.000.000-00
+    if len(cpf) != 14:
+        return False
+    if cpf[3] != "." or cpf[7] != "." or cpf[11] != "-":
         return False
     
     cpf = cpf.replace(".", "").replace("-", "")
     if len(cpf) != 11:
         return False
-    
     if not cpf.isdigit():  # verifica se todos os caracteres são números
         return False
-    
     if len(set(cpf)) == 1:
         return False
     
