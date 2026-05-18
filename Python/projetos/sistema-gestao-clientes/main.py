@@ -165,7 +165,6 @@ def menu_usuarios():
         else:
             print("Opção inválida!")
 
-
 def menu_principal(): # Tem acesso total ao banco de dados
     while True:
         print("=== SISTEMA DE GESTÃO ===")
