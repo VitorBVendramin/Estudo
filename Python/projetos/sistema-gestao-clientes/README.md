@@ -34,8 +34,31 @@ Sistema desenvolvido em Python com banco de dados SQLite para gerenciamento comp
 
 ### 🔐 Autenticação
 - ✅ Login com usuário e senha
-- ✅ Senha criptografada
-- ✅ Níveis de acesso
+- ✅ Senha criptografada com SHA-256
+- ✅ Níveis de acesso por cargo (Master, Operador, Aprendiz)
+- ✅ Criação automática do usuário Master no primeiro acesso
+
+---
+
+## 👥 Níveis de acesso
+
+| Cargo | Acesso |
+|-------|--------|
+| Master | Acesso total + gerenciamento de usuários |
+| Operador | Clientes, produtos e vendas |
+| Aprendiz | Apenas consultas |
+
+---
+
+## 🔑 Reset de senha
+
+Caso perca o acesso ao sistema, rode o script de reset no terminal:
+
+```bash
+python reset_admin.py
+```
+
+O script solicita uma nova senha para o usuário Master sem precisar acessar o banco manualmente.
 
 ---
 
@@ -69,6 +92,15 @@ Sistema desenvolvido em Python com banco de dados SQLite para gerenciamento comp
 | valor | REAL | Valor da venda |
 | data | TEXT | Data da venda |
 
+### Tabela: usuarios
+| Campo | Tipo | Descrição |
+|-------|------|-----------|
+| id | INTEGER | Chave primária |
+| nome | TEXT | Nome do usuário |
+| login | TEXT UNIQUE | Login do usuário |
+| senha | TEXT | Senha criptografada com SHA-256 |
+| cargo | TEXT | Cargo do usuário |
+
 ---
 
 ## 📁 Estrutura do projeto
@@ -87,6 +119,7 @@ sistema-gestao-clientes/
 │   └── validacoes.py      ← validação de dados
 │
 ├── main.py                ← menu principal
+├── reset_admin.py         ← script para reset de senha do Master
 └── README.md
 ```
 
@@ -109,6 +142,8 @@ python database/database.py
 ```bash
 python main.py
 ```
+
+> Na primeira execução o sistema solicitará a criação do usuário Master.
 
 > Nenhuma biblioteca externa necessária. O projeto usa apenas módulos nativos do Python.
 
