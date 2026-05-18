@@ -145,7 +145,23 @@ def menu_relatorio():
         else:
             print("Opção inválida. Utilize número de 1 a 5 somente!")
 
-def menu_principal():
+def menu_usuarios():
+    while True:
+        print("=== MENU USUÁRIOS ===")
+        print("1 - Cadastrar usuário")
+        print("2 - Voltar")
+
+        opcao = int(input("Escolha uma opção: "))
+
+        if opcao == 1:
+            cadastrar_usuario()
+        elif opcao == 2:
+            break
+        else:
+            print("Opção inválida!")
+
+
+def menu_principal(): # Tem acesso total ao banco de dados
     while True:
         print("=== SISTEMA DE GESTÃO ===")
         print("1 - Clientes")
@@ -169,9 +185,66 @@ def menu_principal():
             menu_relatorio()
 
         elif opcao == 5:
+            menu_usuarios()
+
+        elif opcao == 6:
             break
 
         else:
             print("Opção não existe!")
 
-menu_principal() # Inicia o sistema
+def menu_operador(): # Consegue modificar clientes, produtos e vendas
+    while True:
+        print("=== SISTEMA DE GESTÃO ===")
+        print("1 - Clientes")
+        print("2 - Produtos")
+        print("3 - Vendas")
+        print("4 - Sair")
+
+        opcao = int(input("Escolha uma opção: "))
+
+        if opcao == 1:
+            menu_clientes()
+        elif opcao == 2:
+            menu_produtos()
+        elif opcao == 3:
+            menu_vendas()
+        elif opcao == 4:
+            break
+        else:
+            print("Opção não existe!")
+
+def menu_aprendiz(): # Apenas consegue listar, sem alterar nada no banco de dados
+    while True:
+        print("=== SISTEMA DE GESTÃO ===")
+        print("1 - Listar clientes")
+        print("2 - Listar produtos")
+        print("3 - Listar vendas")
+        print("4 - Sair")
+
+        opcao = int(input("Escolha uma opção: "))
+
+        if opcao == 1:
+            buscar_todos()
+        elif opcao == 2:
+            listar_produtos()
+        elif opcao == 3:
+            listar_vendas()
+        elif opcao == 4:
+            break
+        else:
+            print("Opção não existe!")
+
+criar_admin()
+usuario = fazer_login()
+
+if usuario:
+    cargo = usuario[4]
+    if cargo == "master":
+        menu_principal()
+    elif cargo == "operador":
+        menu_operador()
+    elif cargo == "aprendiz":
+        menu_aprendiz()
+else:
+    print("Acesso negado!")
