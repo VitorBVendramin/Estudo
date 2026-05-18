@@ -32,10 +32,10 @@ Sistema desenvolvido em Python com banco de dados SQLite para gerenciamento comp
 - ✅ Produtos com estoque baixo
 - ✅ Faturamento total
 
-### 🔐 Autenticação (em breve)
-- ⏳ Login com usuário e senha
-- ⏳ Senha criptografada
-- ⏳ Níveis de acesso
+### 🔐 Autenticação
+- ✅ Login com usuário e senha
+- ✅ Senha criptografada
+- ✅ Níveis de acesso
 
 ---
 
@@ -125,7 +125,7 @@ python main.py
 
 ## 📈 Status
 
-🟡 Em desenvolvimento — autenticação sendo implementada
+🟡 Em desenvolvimento — testes sendo feitos
 
 ---
 

@@ -9,16 +9,21 @@ def criar_admin():
     usuario = cursor.fetchone()
     
     if usuario is None:
-        senha = hashlib.sha256("admin0101".encode()).hexdigest()
+        print("=== CONFIGURAÇÃO INICIAL DO SISTEMA ===")
+        print("Nenhum usuário encontrado. Crie o usuário master!")
+        
+        nome = input("Nome do master: ")
+        login = input("Login do master: ")
+        senha = input("Senha do master: ")
+        senha_hash = hashlib.sha256(senha.encode()).hexdigest()
+        
         cursor.execute("""
             INSERT INTO usuarios (nome, login, senha, cargo)
             VALUES (?, ?, ?, ?)
-        """, ("Master", "admin", senha, "master"))
+        """, (nome, login, senha_hash, "master"))
+        
         conexao.commit()
-        print("Usuário master criado!")
-        print("Login: admin")
-        print("Senha: admin0101")
-        print("Troque a senha após o primeiro acesso!")
+        print("Master criado com sucesso! Faça login para continuar.")
     
     cursor.close()
     conexao.close()
@@ -73,4 +78,21 @@ def fazer_login():
     return usuario
 
 def verificar_cargo():
-    pass
+    usuario_id = int(input("ID do usuário: "))
+    
+    conexao = conectar()
+    cursor = conexao.cursor()
+    cursor.execute("SELECT nome, login, cargo FROM usuarios WHERE id = ?", (usuario_id,))
+    usuario = cursor.fetchone()
+    
+    if usuario is None:
+        print("Usuário não encontrado!")
+    else:
+        print(f"""
+Nome: {usuario[0]}
+Login: {usuario[1]}
+Cargo: {usuario[2]}
+""")
+    
+    cursor.close()
+    conexao.close()

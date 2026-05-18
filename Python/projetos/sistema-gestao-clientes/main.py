@@ -10,6 +10,8 @@ from models.venda import registrar_venda, listar_vendas, vendas_por_produto, pro
 # Funções de relatórios
 from models.relatorios import faturamento_total, vendas_por_periodo, historico_por_cliente, produtos_estoque_baixo
 
+from models.auth import criar_admin, cadastrar_usuario, fazer_login, verificar_cargo
+
 from datetime import datetime
 
 # Menu principal do sistema de gestão de clientes, produtos e vendas
@@ -149,13 +151,16 @@ def menu_usuarios():
     while True:
         print("=== MENU USUÁRIOS ===")
         print("1 - Cadastrar usuário")
-        print("2 - Voltar")
+        print("2 - Verificar cargo de usuário")
+        print("3 - Voltar")
 
         opcao = int(input("Escolha uma opção: "))
 
         if opcao == 1:
             cadastrar_usuario()
         elif opcao == 2:
+            verificar_cargo()
+        elif opcao == 3:
             break
         else:
             print("Opção inválida!")
@@ -168,7 +173,8 @@ def menu_principal(): # Tem acesso total ao banco de dados
         print("2 - Produtos")
         print("3 - Vendas")
         print("4 - Relatórios")
-        print("5 - Sair")
+        print("5 - Usuários")
+        print("6 - Sair")
 
         opcao = int(input("Escolha uma opção: "))
 
