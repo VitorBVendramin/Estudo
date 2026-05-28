@@ -119,7 +119,7 @@ sistema-gestao-clientes/
 │   └── validacoes.py      ← validação de dados
 │
 ├── main.py                ← menu principal
-├── reset_admin.py         ← script para reset de senha do Master
+├── reset_admin.py         ← script para reset de senha do Master (sistema local, caso não fosse, teria que fazer reset por email ou formas seguras)
 └── README.md
 ```
 
