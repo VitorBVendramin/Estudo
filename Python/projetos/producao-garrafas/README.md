@@ -6,9 +6,11 @@ Sistema em Python para acompanhar a produção horária de garrafas no meu traba
 
 ## 📋 Sobre o Projeto
 
-No dia a dia, a produção era anotada no papel: o total de garrafas que a máquina marcava a cada hora, e a diferença entre uma leitura e outra era calculada manualmente pra saber quanto foi produzido naquela hora.
+No dia a dia, a produção é anotada no papel: o total de garrafas que a máquina marcava a cada hora, e a diferença entre uma leitura e outra é calculada manualmente pra saber quanto foi produzido naquela hora.
 
 Esse projeto automatiza esse processo: você insere a leitura atual da máquina, e o sistema calcula sozinho a produção da hora, compara com a meta cadastrada e mostra quantos minutos a máquina ficou parada.
+
+Por enquanto é apenas um projeto para uso pessoal, futuramente possa a ser mostrado e usado como novo método de anotar o hora-hora da produção.
 
 ---
 
