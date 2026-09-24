@@ -1,13 +1,8 @@
-valor_anterior = 45000
+# nome das variaveis que irei usar
 
-valor_atual = int(input("Digite o valor atual de garrafas da máquina: "))
-
-valor_total = valor_anterior + valor_atual
-
-diferença_valor = valor_atual - valor_anterior
-
-diferença_valor/400
-
-print(f"A quantia de garrafa por hora é de: {diferença_valor}")
-
-print(f"A quantia de garrafa atual é de: {valor_total}")
+# leitura_anterior / número fixo por enquanto (exemplo: 463000)
+# leitura_atual / vem do input(), convertido pra int
+# meta / número fixo por enquanto (exemplo: 24000) — é a "norma cadência" da máquina
+# producao_hora / você calcula, não define valor direto (é o resultado de uma conta)
+# meta_por_minuto / também calculado
+# minutos_parados / também calculado
