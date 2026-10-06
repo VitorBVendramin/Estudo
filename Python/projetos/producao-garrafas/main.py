@@ -13,6 +13,15 @@ except:
     historico = []
     valor_anterior = 0
 
+try:
+    with open("bebida_anterior.txt", "r") as arquivo:
+        linhas = arquivo.read()
+
+    bebida_anterior = linhas.strip()
+
+except:
+    bebida_anterior = ""
+
 meta = 24500
 
 bebida = input("Digite a bebida que esta rodando: ")
@@ -27,7 +36,10 @@ if valor_atual < valor_anterior:
 else:
     producao_hora = valor_atual - valor_anterior
 
-if len(historico) >= 12 or valor_atual < valor_anterior:
+with open("bebida_anterior.txt", "w") as arquivo:
+    arquivo.write(bebida)
+
+if len(historico) >= 12 or valor_atual < valor_anterior or bebida.lower() != bebida_anterior.lower():
     historico = []
 
 historico.append(valor_atual)

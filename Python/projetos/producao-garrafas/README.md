@@ -16,12 +16,11 @@ Por enquanto é apenas um projeto para uso pessoal, futuramente possa a ser most
 
 ## ⚙️ Funcionalidades
 
-- [ ] Registro da leitura horária da máquina
-- [ ] Cálculo automático da produção da hora (diferença entre leituras)
+- [✅] Cálculo automático da produção da hora (diferença entre leituras)
 - [ ] Cadastro de máquinas, cada uma com sua própria meta de produção/hora
-- [ ] Cálculo do tempo parado (minutos) com base na diferença entre a meta e o produzido
+- [✅] Cálculo do tempo parado (minutos) com base na diferença entre a meta e o produzido
 - [ ] Gráfico da produção hora a hora
-- [ ] Histórico salvo entre execuções
+- [✅] Histórico salvo entre execuções
 
 ---
 
