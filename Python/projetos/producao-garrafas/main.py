@@ -22,12 +22,12 @@ try:
 except:
     bebida_anterior = ""
 
-meta = 24500
+meta = 34500
 
 bebida = input("Digite a bebida que esta rodando: ")
 
 if bebida.lower() == "powerade":
-    meta = 21500
+    meta = 31500
 
 valor_atual = int(input("Digite o valor atual de garrafas da máquina: "))
 
