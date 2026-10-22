@@ -22,12 +22,44 @@ try:
 except:
     bebida_anterior = ""
 
-meta = 34500
+maquina = int(input("Qual máquina: "))
+bebida = input("Qual bebida está rodando: ")
 
-bebida = input("Digite a bebida que esta rodando: ")
+metas = {
+    5: {
+        "coca cola": 26000,
+        "tetris": 26000,
+        "fanta laranja": 26000,
+        "fanta guarana": 26000,
+        "fanta uva": 26000
+    },
+    7: {
+        "coca cola 1l": 28800,
+        "coca cola 1,5l": 25000,
+        "coca cola 2,25l": 22000,
+        "coca cola 2,5l": 18000,
+        "sprite lemon": 25000,
+        "fanta laranja": 22000,
+        "citrus": 25000
+    },
+    8: {
+        "coca cola": 27200
+    },
+    9: {
+        "powerade": 21500,
+        "del valle": 24500,
+        "del valle limao": 24500,
+        "power acai": 24500,
+        "cha matte": 24500
+    },
+    13: {
+        "coca cola 2l": 24000,
+        "coca cola 2,5l": 22800,
+        "coca cola 3l": 19500
+    }
+}
 
-if bebida.lower() == "powerade":
-    meta = 31500
+meta = metas[maquina][bebida.lower()]
 
 valor_atual = int(input("Digite o valor atual de garrafas da máquina: "))
 
