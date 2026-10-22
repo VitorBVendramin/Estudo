@@ -27,35 +27,35 @@ bebida = input("Qual bebida está rodando: ")
 
 metas = {
     5: {
-        "coca cola": 26000,
-        "tetris": 26000,
-        "fanta laranja": 26000,
-        "fanta guarana": 26000,
-        "fanta uva": 26000
+        "coca cola": 36000,
+        "tetris": 36000,
+        "fanta laranja": 36000,
+        "fanta guarana": 36000,
+        "fanta uva": 36000
     },
     7: {
-        "coca cola 1l": 28800,
-        "coca cola 1,5l": 25000,
-        "coca cola 2,25l": 22000,
-        "coca cola 2,5l": 18000,
-        "sprite lemon": 25000,
-        "fanta laranja": 22000,
-        "citrus": 25000
+        "coca cola 1l": 38800,
+        "coca cola 1,5l": 35000,
+        "coca cola 2,25l": 32000,
+        "coca cola 2,5l": 28000,
+        "sprite lemon": 35000,
+        "fanta laranja": 32000,
+        "citrus": 35000
     },
     8: {
-        "coca cola": 27200
+        "coca cola": 37200
     },
     9: {
-        "powerade": 21500,
-        "del valle": 24500,
-        "del valle limao": 24500,
-        "power acai": 24500,
-        "cha matte": 24500
+        "powerade": 31500,
+        "del valle": 34500,
+        "del valle limao": 34500,
+        "power acai": 3500,
+        "cha matte": 34500
     },
     13: {
-        "coca cola 2l": 24000,
-        "coca cola 2,5l": 22800,
-        "coca cola 3l": 19500
+        "coca cola 2l": 34000,
+        "coca cola 2,5l": 32800,
+        "coca cola 3l": 29500
     }
 }
 
