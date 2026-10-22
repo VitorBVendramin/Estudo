@@ -1,5 +1,7 @@
+maquina = int(input("Qual máquina: "))
+
 try:
-    with open("valor_anterior.txt", "r") as arquivo:
+    with open(f"valor_anterior_{maquina}.txt", "r") as arquivo:
         linhas = arquivo.readlines()
 
     historico = []
@@ -14,7 +16,7 @@ except:
     valor_anterior = 0
 
 try:
-    with open("bebida_anterior.txt", "r") as arquivo:
+    with open(f"bebida_anterior_{maquina}.txt", "r") as arquivo:
         linhas = arquivo.read()
 
     bebida_anterior = linhas.strip()
@@ -22,7 +24,6 @@ try:
 except:
     bebida_anterior = ""
 
-maquina = int(input("Qual máquina: "))
 bebida = input("Qual bebida está rodando: ")
 
 metas = {
@@ -49,7 +50,7 @@ metas = {
         "powerade": 31500,
         "del valle": 34500,
         "del valle limao": 34500,
-        "power acai": 3500,
+        "power acai": 35000,
         "cha matte": 34500
     },
     13: {
@@ -68,7 +69,7 @@ if valor_atual < valor_anterior:
 else:
     producao_hora = valor_atual - valor_anterior
 
-with open("bebida_anterior.txt", "w") as arquivo:
+with open(f"bebida_anterior_{maquina}.txt", "w") as arquivo:
     arquivo.write(bebida)
 
 if len(historico) >= 12 or valor_atual < valor_anterior or bebida.lower() != bebida_anterior.lower():
@@ -76,7 +77,7 @@ if len(historico) >= 12 or valor_atual < valor_anterior or bebida.lower() != beb
 
 historico.append(valor_atual)
 
-with open("valor_anterior.txt", "w") as arquivo:
+with open(f"valor_anterior_{maquina}.txt", "w") as arquivo:
     for numero in historico:
         arquivo.write(str(numero) + "\n")
 
